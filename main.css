@@ -1,0 +1,19 @@
+body {
+  background-color: #000; 
+  font-size:12pt; 
+  font-family:Verdana}
+  
+  h1 {
+  color:#fff
+  }
+  
+  article, div, footer {
+    margin: 0.2rem;
+    padding: 0.2rem;
+    background-color: #ddd;
+  }
+  
+  section {
+    padding: 0.2rem;
+    background-color: #eee;
+  }

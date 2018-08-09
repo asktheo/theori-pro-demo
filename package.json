@@ -1,0 +1,27 @@
+{
+  "name": "theori-pro",
+  "version": "1.0.0",
+  "description": "AngularJS And Bootstrap 4 for my website and presentation of projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "main",
+    "start": "angular-http-server -port=8000"
+  },
+  "keywords": [
+    "AngularJS",
+    "HTML5",
+    "Bootstrap",
+    "4"
+  ],
+  "author": "Theo Askov",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.7.2",
+    "angular-animate": "^1.7.3",
+    "angular-route": "^1.7.3",
+    "angular-touch": "^1.7.3",
+    "angular-ui-bootstrap": "^2.5.6",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}

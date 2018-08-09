@@ -1,0 +1,26 @@
+    <div class="container text-center">
+            <div class="row">
+                <span class="col-6">About me. Click button to the right to load list of skills</span><span class="col-6"><button class="btn btn-default btn-sm" ng-click="me.getSkills()">Get Skills</button></span>
+            </div>
+            <div class="row">
+                <span class="col-12">
+                    <table ng-if="me.skills.length &gt; 0" class="table">
+                        <thead>
+                            <th>Kategori</th>
+                            <th>Emne</th>
+                            <th>Niveau</th>
+                            <th>Senest Anvendt</th>
+                            <th>Antal år</th>
+                        </thead>
+                        <tr ng-repeat="item in me.skills">
+                            <td>{{item.skillKategori}}</td>
+                            <td>{{item.navn}}</td>
+                            <td>{{item.niveau}}</td>
+                            <td>{{item.senestAar}}</td>
+                            <td>{{item.antalAar}}</td>
+                        </tr>
+                    </table>
+
+                </span>
+            </div>
+    </div>
