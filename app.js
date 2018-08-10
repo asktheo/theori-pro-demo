@@ -6,3 +6,5 @@ angular.module('mainApp',[
   'ui.bootstrap',
   'app.menu'
 ]);
+
+angular.module('mainApp').constant('CONFIG', CONFIG);

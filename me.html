@@ -1,24 +1,72 @@
     <div class="container text-center">
             <div class="row">
-                <span class="col-6">About me. Click button to the right to load list of skills</span><span class="col-6"><button class="btn btn-default btn-sm" ng-click="me.getSkills()">Get Skills</button></span>
+                <span class="col-sm-8">
+                    <div class="h4">About me ...</div>
+                    <div class="row" ng-if="(me.resume == null &amp;&amp; me.skills.length==0)">Click buttons to the right to load resume and list of skills. Note: It will appear in Danish</div>
+                </span>
+                <span class="col-sm-4 text-right">
+                    <button class="btn btn-default btn-sm" ng-click="me.getResume()" ng-disabled="me.resume">See resume</button>
+                    <button class="btn btn-default btn-sm" ng-click="me.getSkills()" ng-disabled="me.skills.length != 0">See skills</button>
+                </span>
             </div>
             <div class="row">
-                <span class="col-12">
-                    <table ng-if="me.skills.length &gt; 0" class="table">
+                <span class="col-sm-8" ng-if="me.resume">
+                    <hr>
+                    {{me.resume.resume}}
+                    <hr>
+                    <table class="table text-left" >
+                        <thead><th colspan="4">Tidligere beskæftigelse</th></thead>
+                        <tbody>
+                            <tr ng-repeat="it in me.resume.tidligere">
+                                <td>{{it.aar}}</td>
+                                <td>{{it.periode}}</td>
+                                <td>{{it.beskrivelse}}</td>
+                                <td>{{it.ved}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </span>
+                <span class="col-sm-4" ng-if="me.resume">
+                    <table class="table text-left">
+                        <thead><th colspan="2">Uddannelse</th></thead>
+                        <tbody>
+                            <tr ng-repeat="it in me.resume.uddannelse">
+                                <td>{{it.aar}}</td>
+                                <!-- <td>{{it.periode}}</td> -->
+                                <td>{{it.beskrivelse}}</td>
+                            </tr>
+                            <tr><td colspan=3><b>Kurser</b></td></tr>
+                            <tr ng-repeat="it in me.resume.kurser | filter: {personlig : null }">
+                                <td>{{it.aar}}</td>
+                                <!-- <td>{{it.periode}}</td> -->
+                                <td>{{it.beskrivelse}}</td>
+                            </tr>     
+                        </tbody>
+                    </table>
+                </span>              
+            </div>
+            <div class="row" ng-if="me.skills.length>0">
+                <span class="input-group-horizontal col-md-3">Filtre</span>
+                <span class="input-group-horizontal col-md-3"><span class="input-group-addon">Minimum niveau</span><input class="form-control" type="text" ng-model="me.minLevel" placeholder="1..5"></span>
+                <span class="input-group-horizontal col-md-3"><span class="input-group-addon">Anvendt senest</span><input class="form-control" type="text" ng-model="me.minLatest" placeholder="YYYY"></span>
+                <span class="input-group-horizontal col-md-3"><span class="input-group-addon">Minimum antal år</span><input class="form-control" type="text" ng-model="me.minAntal" placeholder="1..20"></span>
+                <span class="col-sm-12" ng-repeat="x in me.skillCategories">
+                    <h3>{{x.cat}}</h3>
+                    <table class="table text-left">
                         <thead>
-                            <th>Kategori</th>
                             <th>Emne</th>
                             <th>Niveau</th>
-                            <th>Senest Anvendt</th>
-                            <th>Antal år</th>
+                            <th class="text-right">Senest Anvendt</th>
+                            <th class="text-right">Antal år</th>
                         </thead>
-                        <tr ng-repeat="item in me.skills">
-                            <td>{{item.skillKategori}}</td>
-                            <td>{{item.navn}}</td>
-                            <td>{{item.niveau}}</td>
-                            <td>{{item.senestAar}}</td>
-                            <td>{{item.antalAar}}</td>
-                        </tr>
+                        <tbody>
+                            <tr ng-repeat="item in me.skills | filter: { skillKategori : x.id } | filter: me.minLevelF(item) | filter: me.minLatestF(item) | filter: me.minAntalF(item)">
+                                <td>{{item.navn}}</td>
+                                <td>{{item.niveau}}: {{item.niveau | skillLevel}}</td>
+                                <td class="text-right">{{item.senestAar}}</td>
+                                <td class="text-right">{{item.antalAar}}</td>
+                            </tr>
+                        </tbody>
                     </table>
 
                 </span>
