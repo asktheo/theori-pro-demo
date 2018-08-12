@@ -1,0 +1,24 @@
+    <div class="container text-center" ng-init="projs.getProjects()">
+            <div class="row">
+                <span class="h3 col-sm-12">Project experience</span>
+            </div>
+            <div class="row" ng-if="projs.projects">
+                <div class="col-sm-12" ng-repeat="item in projs.projects | orderBy:projs.orderByStartAar:true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="height:35px"><span class="pull-left">{{item.kunde}}</span><span class="pull-right">{{item.periode.startdato}} - {{item.periode.slutdato}} </span>
+                        </div>
+                        <div class="panel-body">
+                            <span class="col-xs-12 text-left">{{item.beskrivelse}}</span>
+                            <table class="table text-left">
+                                    <col width="31%">
+                                    <col width="69%">
+                                <tbody>
+                                    <tr><td>Teknologier</td><td><span ng-repeat="t in item.teknologier" class="pull-left"><label class="label label-default">{{t}}</label>&nbsp;</span></td></tr>
+                                    <tr><td>Roller</td><td><span ng-repeat="r in item.roller"><label class="label label-success">{{r.title}}</label>{{(r.desc != null)? " - " + r.desc : ""}}&nbsp;</span></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
