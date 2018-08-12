@@ -35,7 +35,7 @@ angular
 
 angular
   .module('mainApp')
-  .controller('MeController',['SkillService','ResumeService', function(SkillService,ResumeService) {
+  .controller('MeController',['SkillService','ResumeService','$location', function(SkillService,ResumeService,$location) {
      var me = this;
 
      me.projectCount = 4;

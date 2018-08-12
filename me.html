@@ -47,9 +47,9 @@
             </div>
             <div class="row" ng-if="me.skills.length>0">
                 <span class="input-group-horizontal col-md-3">Filtre</span>
-                <span class="input-group-horizontal col-md-3"><span class="input-group-addon">Minimum niveau</span><input class="form-control" type="text" ng-model="me.minLevel" placeholder="1..5"></span>
-                <span class="input-group-horizontal col-md-3"><span class="input-group-addon">Anvendt senest</span><input class="form-control" type="text" ng-model="me.minLatest" placeholder="YYYY"></span>
-                <span class="input-group-horizontal col-md-3"><span class="input-group-addon">Minimum antal år</span><input class="form-control" type="text" ng-model="me.minAntal" placeholder="1..20"></span>
+                <span class="input-group-horizontal col-md-3"><span class="input-group-addon">Minimum niveau</span><input id="minLevel" class="form-control" type="text" ng-model="me.minLevel" placeholder="1..5"></span>
+                <span class="input-group-horizontal col-md-3"><span class="input-group-addon">Anvendt senest</span><input id="minLatest" class="form-control" type="text" ng-model="me.minLatest" placeholder="YYYY"></span>
+                <span class="input-group-horizontal col-md-3"><span class="input-group-addon">Minimum antal år</span><input id="minAntal" class="form-control" type="text" ng-model="me.minAntal" placeholder="1..20"></span>
                 <span class="col-sm-12" ng-repeat="x in me.skillCategories">
                     <h3>{{x.cat}}</h3>
                     <table class="table text-left">

@@ -1,0 +1,38 @@
+<div class="container text-center" ng-init="me.getSkills()">
+
+    <div class="row" ng-if="me.skills.length>0">
+        <span class="input-group-horizontal col-md-3">Filtre</span>
+        <span class="input-group-horizontal col-md-3">
+            <span class="input-group-addon">Minimum niveau</span>
+            <input id="minLevel" class="form-control" type="text" ng-model="me.minLevel" placeholder="1..5">
+        </span>
+        <span class="input-group-horizontal col-md-3">
+            <span class="input-group-addon">Anvendt senest</span>
+            <input id="minLatest" class="form-control" type="text" ng-model="me.minLatest" placeholder="YYYY">
+        </span>
+        <span class="input-group-horizontal col-md-3">
+            <span class="input-group-addon">Minimum antal år</span>
+            <input id="minAntal" class="form-control" type="text" ng-model="me.minAntal" placeholder="1..20">
+        </span>
+        <span class="col-sm-12" ng-repeat="x in me.skillCategories">
+            <h3>{{x.cat}}</h3>
+            <table class="table text-left">
+                <thead>
+                    <th>Emne</th>
+                    <th>Niveau</th>
+                    <th class="text-right">Senest Anvendt</th>
+                    <th class="text-right">Antal år</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in me.skills | filter: { skillKategori : x.id } | filter: me.minLevelF(item) | filter: me.minLatestF(item) | filter: me.minAntalF(item)">
+                        <td>{{item.navn}}</td>
+                        <td>{{item.niveau}}: {{item.niveau | skillLevel}}</td>
+                        <td class="text-right">{{item.senestAar}}</td>
+                        <td class="text-right">{{item.antalAar}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </span>
+    </div>
+</div>

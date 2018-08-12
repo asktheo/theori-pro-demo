@@ -1,0 +1,45 @@
+<div class="container text-center" ng-init="me.getResume()">
+    <div class="row">
+        <span class="col-sm-8" ng-if="me.resume">
+            <hr> {{me.resume.resume}}
+            <hr>
+            <table class="table text-left">
+                <thead>
+                    <th colspan="4">Tidligere beskæftigelse</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="it in me.resume.tidligere">
+                        <td>{{it.aar}}</td>
+                        <td>{{it.periode}}</td>
+                        <td>{{it.beskrivelse}}</td>
+                        <td>{{it.ved}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </span>
+        <span class="col-sm-4" ng-if="me.resume">
+            <table class="table text-left">
+                <thead>
+                    <th colspan="2">Uddannelse</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="it in me.resume.uddannelse">
+                        <td>{{it.aar}}</td>
+                        <!-- <td>{{it.periode}}</td> -->
+                        <td>{{it.beskrivelse}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan=3>
+                            <b>Kurser</b>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="it in me.resume.kurser | filter: {personlig : null }">
+                        <td>{{it.aar}}</td>
+                        <!-- <td>{{it.periode}}</td> -->
+                        <td>{{it.beskrivelse}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </span>
+    </div>
+</div>

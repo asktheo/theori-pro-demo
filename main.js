@@ -10,15 +10,20 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     controller: 'MainController',
     controllerAs: 'main'
   })
-  .when('/me', {
-    templateUrl: 'me.html',
+  .when('/resume', {
+    templateUrl: 'resume.html',
     controller: 'MeController',
     controllerAs: 'me'
   })
+  .when('/skills', {
+    templateUrl: 'skills.html',
+    controller: 'MeController',
+    controllerAs: 'me'
+  })  
   .when('/projects', {
-    templateUrl: 'projects.html',
-    controller: 'ProjectController',
-    controllerAs: 'project'
+    templateUrl: '/projects/projects.html',
+    controller: 'ProjectsController',
+    controllerAs: 'projs'
   })
   .when('/project/:projectId/', {
     templateUrl: 'project.html',
