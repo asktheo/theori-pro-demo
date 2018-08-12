@@ -1,3 +1,3 @@
 const CONFIG = {
-    ApiUrl : "http://localhost:8080/demo"
+    ApiUrl : "http://localhost:8190/demo"
 };
