@@ -10,6 +10,11 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     controller: 'MainController',
     controllerAs: 'main'
   })
+  .when('/demos', {
+    templateUrl: './demos/demos.html',
+    controller: 'DemoController',
+    controllerAs: 'demo'
+  }) 
   .when('/resume', {
     templateUrl: 'resume.html',
     controller: 'MeController',
@@ -31,8 +36,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     controllerAs: 'project'
   });
 
-
-  $routeProvider.otherwise({redirectTo: '/'});
+  //$routeProvider.otherwise({redirectTo: '/'});
 }]);
 
 angular.module('mainApp')

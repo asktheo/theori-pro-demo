@@ -17,3 +17,8 @@ body {
     padding: 0.2rem;
     background-color: #eee;
   }
+
+  label.ext_link {
+    cursor: pointer;
+
+  }

@@ -1,27 +1,59 @@
 <!doctype html>
 <html ng-app="mainApp">
-    <base href="/">
-  <head>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
-    <link rel="stylesheet" href="main.css">
-  </head>
-  <body>
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-route/angular-route.js"></script>
-    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
-    <script src="config/dev.js"></script>
-    <script src="app.js"></script>
-    <script src="me.js"></script>
-    <script src="./projects/projectservice.js"></script>
-    <script src="./projects/projects.js"></script>
-    <script src="./menu/menu.js"></script>
-    <script src="main.js"></script>
-        <menu></menu>
+<meta Content-Type=text/html; charset=utf-8 />
+<base href="/">
 
-    <ng-view></ng-view>
-    <footer>
+<head>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css">
+  <link rel="stylesheet" href="main.css">
+</head>
 
-    </footer>
-  </body>
+<body lang="da">
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-route/angular-route.js"></script>
+  <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+  <script src="config/config.js"></script>
+  <script src="app.js"></script>
+  <script src="me.js" charset="utf-8"></script>
+  <script src="./demos/demo.js"></script>
+  <script src="./projects/projectservice.js"></script>
+  <script src="./projects/projects.js"></script>
+  <script src="./menu/menu.js"></script>
+  <script src="main.js"></script>
+  <menu></menu>
+  <ng-view></ng-view>
+  <p></p>
+  <footer>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="col-md-4">
+            &copy; Theo Askov
+            <br>
+            <address>Teglgårdsvej 639 3.TV, DK-3050 Humlebæk</address>
+          </div>
+          <div class="col-md-4">
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="https://www.linkedin.com/in/theoaskov/">LinkedIn</a>
+              </li>
+              <li>
+                <a href="https://github.com/asktheo">GitHub</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+              <li>
+                <a href="https://theori.dk" target="_blank">Blog (Da)</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>
