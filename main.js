@@ -11,7 +11,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     controllerAs: 'main'
   })
   .when('/demos', {
-    templateUrl: './demos/demos.html',
+    templateUrl: 'demos.html',
     controller: 'DemoController',
     controllerAs: 'demo'
   }) 
@@ -26,7 +26,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
     controllerAs: 'me'
   })  
   .when('/projects', {
-    templateUrl: '/projects/projects.html',
+    templateUrl: 'projects.html',
     controller: 'ProjectsController',
     controllerAs: 'projs'
   })
